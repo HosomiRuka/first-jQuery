@@ -19,9 +19,14 @@ sample.on({
 
 nav.on({
   click: function () {
-    $(".nav").toggleClass("active");
+    nav.toggleClass("active");
+    $(".anime").toggleClass("animated");
+    $(".manu").toggleClass("manu__none");
+    $(".manu__nav").toggleClass("manu__nav__1");
     console.log("navが押されました");
   },
 });
+
+$("#foo").slideUp(500).fadeIn(400);
 
 console.log(test);

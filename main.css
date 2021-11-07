@@ -1,37 +1,64 @@
-@charset "utf-8";
-
-/*========= LoadingのためのCSS ===============*/
-
-/* Loading背景画面設定　*/
-
-#splash {
-  /*fixedで全面に固定*/
-  position: fixed;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  background: #333;
-  text-align: center;
-  color: #fff;
-}
-
-/*========= レイアウトのためのCSS ===============*/
-
-#container {
-  width: 100%;
-  height: 100vh;
-  background: #ccc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
 .c {
   opacity: 0;
 }
 
+.box {
+  position: relative;
+  /* background: tomato; */
+}
+
+.anime {
+  width: 100px;
+  height: 100px;
+  background: #dedede;
+  border-radius: 100%;
+  transform: scale(0); /*scaleをはじめは0に*/
+  transition: 2s;
+}
+
+.animated {
+  transform: scale(100);
+  transition: 2s; /*0.6秒かけてアニメーション*/
+}
+
+.manu {
+  display: none;
+  position: fixed;
+  background: #dedede;
+}
+.manu__none {
+  display: block;
+}
+
+ul {
+  opacity: 0;
+}
+.manu__none ul {
+  opacity: 1;
+}
+
+.manu__none ul li {
+  /* animation-name: navAnime;
+  animation-duration: 1s;
+  animation-delay: 0.2s; 
+  animation-fill-mode: forwards; */
+  animation: navAnime 1s 0.3s forwards;
+  opacity: 0;
+}
+@keyframes navAnime {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* =================ハンバーガーメニュ============*/
 .nav {
+  position: absolute;
+  top: 25%;
+  left: 15px;
   width: 100px;
   height: 100px;
   cursor: pointer;
@@ -62,12 +89,4 @@
 .active::after {
   transform: translateY(-13px) rotate(-45deg);
   transition: 0.3s;
-}
-
-a {
-  color: #333;
-}
-
-a:hover {
-  text-decoration: none;
 }
